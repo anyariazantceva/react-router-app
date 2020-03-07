@@ -3,6 +3,7 @@ import React from 'react';
 // Google OAuth Reference:
 // https://developers.google.com/identity/sign-in/web/reference#auth_setup
 
+// TODO: modify to functional component
 class GoogleAuth extends React.Component {
   componentDidMount() {
     // load the library
