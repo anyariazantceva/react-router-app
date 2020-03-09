@@ -1,16 +1,9 @@
-import React, {Component} from 'react';
-import posts from './posts';
+import React from 'react';
 import PostItem from "./PostItem";
 import './main-page.css';
 
 
-export default class MainPage extends Component {
-    state = {
-        posts: posts
-    };
-
-    render () {
-        const { posts } = this.state;
+const MainPage = ({posts}) => {
         const postsList = posts.map((post) => {
             return <PostItem key={post.id} title={post.title} category={post.category}/>
         });
@@ -23,6 +16,7 @@ export default class MainPage extends Component {
                 </div>
             </div>
         )
-    }
 
 };
+
+export default MainPage

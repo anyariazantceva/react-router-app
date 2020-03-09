@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import MainPage from "./MainPage";
+import posts from "./posts";
 
-function App() {
-  return (
-    <div className="App">
-      <MainPage/>
-    </div>
-  );
+class App extends Component {
+    state = {
+        posts: posts
+    }
+    render() {
+        return (
+            <div className="App">
+                <MainPage posts={this.state.posts}/>
+            </div>
+        );
+    }
+
+
 }
 
 export default App;
