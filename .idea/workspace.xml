@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5817db3d-45aa-4396-a57d-0c2718f7896d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/MainPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostItem.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/main-page.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/post-item.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/posts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +32,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Дмитрий\Desktop\Integrify\react-router-exercise\src\components" />
+    </key>
+  </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
@@ -48,7 +59,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583499382520</updated>
-      <workItem from="1583499386305" duration="1307000" />
+      <workItem from="1583499386305" duration="2193000" />
+      <workItem from="1583739434515" duration="4584000" />
     </task>
     <task id="LOCAL-00001" summary="Project initialised">
       <created>1583500470272</created>
@@ -64,7 +76,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583500695650</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Components folder created">
+      <created>1583500837290</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583500837290</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -73,13 +92,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project initialised" />
     <MESSAGE value="develop branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="develop branch" />
+    <MESSAGE value="Components folder created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Components folder created" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="197" y="0" key="CommitChangelistDialog2" timestamp="1583500796856">
+    <state x="197" y="0" key="CommitChangelistDialog2" timestamp="1583500835932">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="197" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1583500796856" />
+    <state x="197" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1583500835932" />
     <state x="175" y="31" key="Vcs.Push.Dialog.v2" timestamp="1583500711206">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
