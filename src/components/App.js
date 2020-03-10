@@ -26,7 +26,8 @@ class App extends Component {
         this.setState({userId: id});
     };
     deletePost=(id)=>{
-console.log('hello')
+        const posts = this.state.posts.filter(post => id !== post.id)
+        this.setState({ posts: posts })
     }
      
 
@@ -39,7 +40,7 @@ console.log('hello')
                         updateSignIn={this.updateSignInStatus}
                         updateUserId={this.updateUserId}
                     />
-                    <MainPage deletePost={this.deletePost} userId={this.state.userId} posts={this.state.posts} deletepost={this.removePost}/>
+                    <MainPage deletePost={this.deletePost} userId={this.state.userId} posts={this.state.posts} />
                     
                 </div>
             </div>

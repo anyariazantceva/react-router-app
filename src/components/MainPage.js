@@ -4,34 +4,25 @@ import PostButtons from "./PostButtons";
 import PostNumber from "./postNumber";
 import "./main-page.css";
 
-const MainPage = ({ posts, userId, deletePost}) => {
-    const deletepost = (id)=>{
-        deletePost(id)
-        console.log(id)
-    }
+const MainPage = ({ posts, userId, deletePost }) => {
+
   const postsList = posts.map(post => {
+    const id = post.id;
     if (userId === post.userId) {
       return (
         <div className="post">
-          <PostItem key={post.id} title={post.title} category={post.category} />
+          <PostItem key={id} title={post.title} category={post.category} />
           <div className="post__right">
-            <button className="post__delete btn" onClick={deletepost}>Delete</button>
+            <button className="post__delete btn" value={id} onClick={() => deletePost(id)}>
+              Delete
+            </button>
             <button className="post__edit btn">Edit</button>
           </div>
-          <PostNumber post={post} id={post.id}/>
+          <PostNumber post={post} id={id} />
         </div>
       );
     }
-    // removePost=(e) => {
-    //     let array = [...this.state.posts]; // make a separate copy of the array
-    //     console.log(array)
-    //     let index = array.indexOf(e.target.value)
-    //     if (index !== -1) {
-    //       array.splice(index, 1);
-    //       this.setState({posts: array});
-    //       console.log(array)
-    //     }}
-    
+
     return (
       <div className="post">
         <PostItem
@@ -41,7 +32,9 @@ const MainPage = ({ posts, userId, deletePost}) => {
           category={post.category}
         />
         <div className="post__right">
-          <button className="post__delete btn" onClick={deletepost}>Delete</button>
+          <button className="post__delete btn" onClick={() => deletePost(id)}>
+            Delete
+          </button>
           <button className="post__edit btn">Edit</button>
         </div>
         <PostNumber post={post} />
