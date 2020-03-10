@@ -34,7 +34,7 @@ class App extends Component {
                         updateSignIn={this.updateSignInStatus}
                         updateUserId={this.updateUserId}
                     />
-                    <MainPage posts={this.state.posts}/>
+                    <MainPage userId={this.state.userId} posts={this.state.posts}/>
                 </div>
             </div>
         );
