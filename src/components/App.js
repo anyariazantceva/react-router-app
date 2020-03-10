@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Header';
 import MainPage from "./MainPage";
 import posts from "./posts";
+import  PostNumber  from './postNumber';
 
 class App extends Component {
     // The states are related with
@@ -35,6 +36,7 @@ class App extends Component {
                         updateUserId={this.updateUserId}
                     />
                     <MainPage posts={this.state.posts}/>
+                    <PostNumber />
                 </div>
             </div>
         );

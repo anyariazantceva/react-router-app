@@ -1,7 +1,15 @@
 import React from "react";
 import './post-item.css';
 
-const PostItem = ({title, category}) => {
+const PostItem = ({id, title, category}) => {
+    // const   removePost=(e) => {
+    //     let array = [...props.post]; // make a separate copy of the array
+    //     console.log(array)
+    //     let index = array.indexOf(e.target.value)
+    //     if (index !== -1) {
+    //       array.splice(index, 1);
+    //       this.setState({posts: array});
+    //     }}
     return (
         <div className="post">
             <div className="post__left">
