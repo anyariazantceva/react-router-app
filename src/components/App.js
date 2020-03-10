@@ -25,6 +25,10 @@ class App extends Component {
     updateUserId = id => {
         this.setState({userId: id});
     };
+    deletePost=(id)=>{
+console.log('hello')
+    }
+     
 
     render() {
         return (
@@ -35,8 +39,8 @@ class App extends Component {
                         updateSignIn={this.updateSignInStatus}
                         updateUserId={this.updateUserId}
                     />
-                    <MainPage posts={this.state.posts}/>
-                    <PostNumber />
+                    <MainPage deletePost={this.deletePost} userId={this.state.userId} posts={this.state.posts} deletepost={this.removePost}/>
+                    
                 </div>
             </div>
         );

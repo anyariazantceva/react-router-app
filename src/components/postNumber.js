@@ -28,6 +28,8 @@ export default class PostNumber extends Component {
     }
   }
   render() {
+      const {post} = this.props;
+
     return (
       <div className="post-main-div">
         <div className="post-top-div">
@@ -36,11 +38,11 @@ export default class PostNumber extends Component {
           <button className="postButton1">Edit Post</button>
         </div>
         <div className="post-text-div">
-          <h4>Title: {this.state.post.title}</h4>
-          <h4>Category: {this.state.post.category}</h4>
+          <h4>Title: {post.title}</h4>
+          <h4>Category: {post.category}</h4>
         </div>
         <div className="post-content-div">
-          <p>{this.state.post.content}</p>
+          <p>{post.content}</p>
         </div>
       </div>
     );
