@@ -27,5 +27,8 @@
     background-color: #3141ff;
     color: #fff;
     padding: 10px 30px;
+}
 
+.btn:hover, .btn:active {
+    background-color: #50a2ff;
 }
