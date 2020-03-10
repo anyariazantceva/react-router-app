@@ -19,14 +19,6 @@ export default class PostNumber extends Component {
     },
     newPost: {}
   };
-  deletePost(e) {
-    let newpost = [...this.state.post]; // make a separate copy of the array
-    let index = newpost.indexOf(e.target.value)
-    if (index !== -1) {
-      newpost.splice(index, 1);
-      this.setState({post: newpost});
-    }
-  }
   render() {
       const {post} = this.props;
 
@@ -34,7 +26,7 @@ export default class PostNumber extends Component {
       <div className="post-main-div">
         <div className="post-top-div">
           <h4>Back to Post</h4>
-          <button  className="postButton" onClick={this.deletePost}>Delete Post</button>
+          <button  className="postButton">Delete Post</button>
           <button className="postButton1">Edit Post</button>
         </div>
         <div className="post-text-div">
