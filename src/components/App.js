@@ -35,21 +35,30 @@ class App extends Component {
     this.setState({ posts: newPostList });
   };
 
-  render() {
-    return (
-      <div className="ui container">
-        <div>
-          <Header
-            isSignedIn={this.state.isSignedIn}
-            updateSignIn={this.updateSignInStatus}
-            updateUserId={this.updateUserId}
-          />
-          <MainPage posts={this.state.posts} />
-          <AddPostMine posts={this.state.posts} addPost={this.addPost} />
-        </div>
-      </div>
-    );
+  deletePost = (id) => {
+      const posts = this.state.posts.filter(post => id !== post.id)
+      this.setState({ posts: posts })
   }
+     
+
+    render() {
+        return (
+            <div className="ui container">
+                <div>
+                    <Header
+                        isSignedIn={this.state.isSignedIn}
+                        updateSignIn={this.updateSignInStatus}
+                        updateUserId={this.updateUserId}
+                    />
+
+                    <MainPage deletePost={this.deletePost} userId={this.state.userId} posts={this.state.posts} />
+                    <AddPostMine posts={this.state.posts} addPost={this.addPost} />
+                    
+                </div>
+            </div>
+        );
+    }
+
 }
 
 export default App;
