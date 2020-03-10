@@ -3,16 +3,23 @@ import PostItem from "./PostItem";
 import './main-page.css';
 
 
-const MainPage = ({posts}) => {
-        const postsList = posts.map((post) => {
-            return <PostItem key={post.id} title={post.title} category={post.category}/>
-        });
+const MainPage = ({posts, userId}) => {
+        // const postsList = posts.map((post) => {
+        //     return <PostItem key={post.id} title={post.title} category={post.category}/>
+        // });
+        const renderPosts = () => {
+            posts.map((post) => {
+                if(userId === post.userId) {
+                    return <PostItem key={post.id} title={post.title} category={post.category}/>
+                }
+            })
+        }
         return (
             <div className='container'>
                 <div className="main__title">Posts List</div>
                 <button className="btn">Add Post</button>
                 <div className="posts__list">
-                    {postsList}
+                    {renderPosts()}
                 </div>
             </div>
         )
