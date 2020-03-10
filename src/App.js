@@ -1,12 +1,11 @@
 import React from 'react';
 import './App.css';
-import AddPost from './components/AddPost';
+import AddPostMine from './components/AddPostMine';
 
 function App() {
   return (
     <div className="App">
-      App
-      <AddPost />
+      <AddPostMine />
     </div>
   );
 }
