@@ -29,11 +29,9 @@ export class AddPostMine extends Component {
       title: this.state.title,
       category: this.state.category,
       content: this.state.content,
-      key: Date.now()
     };
 
     this.props.addPost(newPost);
-    // console.log(newPosts)
   };
 
   render() {
