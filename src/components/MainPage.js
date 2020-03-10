@@ -10,7 +10,7 @@ const MainPage = ({posts}) => {
         return (
             <div className='container'>
                 <div className="main__title">Posts List</div>
-                <button className="add-post__btn">Add Post</button>
+                <button className="btn">Add Post</button>
                 <div className="posts__list">
                     {postsList}
                 </div>
