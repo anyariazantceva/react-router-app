@@ -4,9 +4,7 @@ import './main-page.css';
 
 
 const MainPage = ({posts, userId}) => {
-        // const postsList = posts.map((post) => {
-        //     return <PostItem key={post.id} title={post.title} category={post.category}/>
-        // });
+
         const renderPosts = () => {
             posts.map((post) => {
                 if(userId === post.userId) {
