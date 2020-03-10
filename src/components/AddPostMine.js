@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 
 export class AddPostMine extends Component {
-	state = {
-		title: '',
-		category: '',
-		content: '',
-		key: '',
+	constructor(props) {
+		super(props)
+	
+		this.state = {
+			title: '',
+			category: '',
+			content: '',
+			key: '',
+		}
 	}
 
 	handleChange = e => {
@@ -17,28 +21,31 @@ export class AddPostMine extends Component {
 		// const name = e.target.name
 		// this.setState({title : e.target.value})
 	}
-	addPost = () => {
-		const newPost = this.createPost()
-	}
-	createPost = () => {
-		return {
+	
+	handleSubmit = e => {
+		e.preventDefault()
+		const newPost = {
 			title: this.state.title,
 			category: this.state.category,
 			content: this.state.content,
 			key: Date.now(),
 		}
-	}
+		let newPosts = []
+		
+		newPosts = this.props.posts.push(newPost)
+		this.props.addPost(newPosts)
+		console.log(newPosts)
 
-	handleSubmit = e => {
-		e.preventDefault()
-		this.addPost()
 	}
 
 	render() {
-		console.log(this.state)
+		console.log(this.props.posts)
+
 		return (
 			<div className='form__container'>
 				<h2>{this.state.title}</h2>
+				<h2>{this.state.category}</h2>
+				<h2>{this.state.content}</h2>
 				<form onSubmit={this.handleSubmit}>
 					<div className='title'>
 						<label htmlFor='title'>Title:</label>
@@ -72,7 +79,9 @@ export class AddPostMine extends Component {
 							cols='30'
 							rows='10'></textarea>
 					</div>
-					<button className='btn--save'>Save</button>
+					<button className='btn--save'>
+						Save
+					</button>
 					<button>Cancel</button>
 				</form>
 			</div>

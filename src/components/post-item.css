@@ -1,0 +1,41 @@
+.post {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #cecece;
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+.post__left {
+    width: 45%;
+}
+
+.post__right {
+    width: 20%;
+}
+
+.post__left, .post__right {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.post__link:hover {
+    text-decoration: underline;
+}
+
+.post__title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.post__category {
+}
+
+.post__delete {
+    margin-bottom: 0;
+}
