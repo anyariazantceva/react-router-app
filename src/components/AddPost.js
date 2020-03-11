@@ -27,6 +27,7 @@ export class AddPost extends Component {
     e.preventDefault();
 
     const newpost = {
+      id:(this.props.posts.length+1),
       title: this.state.title,
       category: this.state.category,
       content: this.state.content
@@ -74,7 +75,7 @@ export class AddPost extends Component {
               rows="10"
             ></textarea>
           </div>
-          ><button className="btn--save">Save</button>
+          <button className="btn--save">Save</button>
           <button on>Cancel</button>
         </form>
       </div>
