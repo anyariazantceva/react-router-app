@@ -16,7 +16,7 @@ export class AddPost extends Component {
   handleChange = e => {
     const { name, value } = e.target;
 
-    this.setState({ [name]: value });
+    this.setState({ [name]: value});
     // console.log(e.target.value);
     // const value = e.target.value
     // const name = e.target.name
@@ -26,14 +26,14 @@ export class AddPost extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const newPost = {
+    const newpost = {
       title: this.state.title,
       category: this.state.category,
       content: this.state.content
     };
-
-    this.props.addPost(newPost);
-    this.props.history.push('/');
+    this.props.addPost(newpost);
+    //  this.props.history.push('/');
+   
   };
 
   render() {
@@ -76,7 +76,7 @@ export class AddPost extends Component {
             ></textarea>
           </div>
 
-          <button className="btn--save">Save</button>
+         <Link to='/'><button className="btn--save">Save</button></Link> 
 
           <button>Cancel</button>
         </form>
