@@ -28,20 +28,17 @@ export class AddPostMine extends Component {
     const newPost = {
       title: this.state.title,
       category: this.state.category,
-      content: this.state.content,
+      content: this.state.content
     };
 
     this.props.addPost(newPost);
   };
 
   render() {
-    console.log(this.props.posts);
+    console.log(this.props.addPost);
 
     return (
       <div className="form__container">
-        <h2>{this.state.title}</h2>
-        <h2>{this.state.category}</h2>
-        <h2>{this.state.content}</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="title">
             <label htmlFor="title">Title:</label>
@@ -76,7 +73,9 @@ export class AddPostMine extends Component {
               rows="10"
             ></textarea>
           </div>
+
           <button className="btn--save">Save</button>
+
           <button>Cancel</button>
         </form>
       </div>

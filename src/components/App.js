@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AddPostMine from './AddPostMine';
-import Header from './Header';
-import MainPage from './MainPage';
+import Main from './Main';
 import posts from './posts';
+import PostDetails from './PostDetails';
 
 class App extends Component {
   // The states are related with
@@ -29,41 +30,66 @@ class App extends Component {
     this.setState({ userId: id });
   };
 
-
   addPost = newPost => {
     let newPostList = [...this.state.posts, newPost];
     this.setState({ posts: newPostList });
   };
 
-  deletePost = (id) => {
-      const posts = this.state.posts.filter(post => id !== post.id)
-      this.setState({ posts: posts })
+  deletePost = id => {
+    const posts = this.state.posts.filter(post => id !== post.id);
+    this.setState({ posts: posts });
+  };
+
+  editPost = id => {};
+
+  render() {
+    return (
+      <BrowserRouter>
+        {/* <div className="ui container">
+          <Header
+            isSignedIn={this.state.isSignedIn}
+            updateSignIn={this.updateSignInStatus}
+            updateUserId={this.updateUserId}
+          />
+
+          <MainPage
+            editPost={this.editPost}
+            deletePost={this.deletePost}
+            userId={this.state.userId}
+            posts={this.state.posts}
+          />
+          {/* <AddPostMine addPost={this.addPost} /> */}
+        {/* </div> */}
+
+        <Switch>
+          <Route path="/post/" exact component={PostDetails} />
+          <Route
+            path="/addpost"
+            exact
+            render={() => (
+              <AddPostMine addPost={this.addPost} posts={this.state.posts} />
+            )}
+          />
+          <Route path="/editpost" exact component={AddPostMine} />
+          <Route
+            path="/"
+            exact
+            render={() => (
+              <Main
+                posts={this.state.posts}
+                userId={this.state.userId}
+                deletePost={this.deletePost}
+                editPost={this.editPost}
+                isSignedIn={this.state.isSignedIn}
+                updateSignInStatus={this.updateSignInStatus}
+                updateUserId={this.updateUserId}
+              />
+            )}
+          />
+        </Switch>
+      </BrowserRouter>
+    );
   }
-
-  editPost = (id) => {
-
-  }
-     
-    
-
-    render() {
-        return (
-            <div className="ui container">
-                <div>
-                    <Header
-                        isSignedIn={this.state.isSignedIn}
-                        updateSignIn={this.updateSignInStatus}
-                        updateUserId={this.updateUserId}
-                    />
-
-                    <MainPage editPost={this.editPost} deletePost={this.deletePost} userId={this.state.userId} posts={this.state.posts} />
-                    <AddPostMine posts={this.state.posts} addPost={this.addPost} />
-                    
-                </div>
-            </div>
-        );
-    }
-
 }
 
 export default App;

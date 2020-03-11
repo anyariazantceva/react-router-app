@@ -1,11 +1,11 @@
-import React from "react";
-import PostItem from "./PostItem";
-import PostButtons from "./PostButtons";
-import PostNumber from "./postNumber";
-import "./main-page.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PostItem from './PostItem';
+import PostButtons from './PostButtons';
+import PostNumber from './PostDetails';
+import './main-page.css';
 
 const MainPage = ({ posts, userId, deletePost, editPost }) => {
-
   const postsList = posts.map(post => {
     const id = post.id;
     if (userId === post.userId) {
@@ -13,12 +13,18 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
         <div className="post">
           <PostItem key={id} title={post.title} category={post.category} />
           <div className="post__right">
-            <button className="post__delete btn" value={id} onClick={() => deletePost(id)}>
+            <button
+              className="post__delete btn"
+              value={id}
+              onClick={() => deletePost(id)}
+            >
               Delete
             </button>
-            <button className="post__edit btn" onClick={() => editPost(id)}>Edit</button>
+            <button className="post__edit btn" onClick={() => editPost(id)}>
+              Edit
+            </button>
           </div>
-          <PostNumber post={post} id={id} />
+          {/* <PostNumber post={post} id={id} /> */}
         </div>
       );
     }
@@ -37,7 +43,7 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
           </button>
           <button className="post__edit btn">Edit</button>
         </div>
-        <PostNumber post={post} />
+        {/* <PostNumber post={post} /> */}
       </div>
     );
   });
@@ -45,7 +51,9 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
   return (
     <div className="container">
       <div className="main__title">Posts List</div>
-      <button className="btn">Add Post</button>
+      <Link to="/addpost">
+        <button className="btn">Add Post</button>
+      </Link>
       <div className="posts__list">{postsList}</div>
     </div>
   );
