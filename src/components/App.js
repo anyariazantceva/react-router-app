@@ -63,6 +63,7 @@ class App extends Component {
             exact
             render={() => (
               <AddPost
+                userId={this.state.userId}
                 addPost={this.addPost}
                 posts={this.state.posts}
                 onDismiss={() => history.push('/')}

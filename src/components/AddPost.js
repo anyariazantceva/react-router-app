@@ -17,19 +17,17 @@ export class AddPost extends Component {
     const { name, value } = e.target;
 
     this.setState({ [name]: value });
-    // console.log(e.target.value);
-    // const value = e.target.value
-    // const name = e.target.name
-    // this.setState({title : e.target.value})
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
     const newPost = {
+      id: this.state.id,
       title: this.state.title,
       category: this.state.category,
-      content: this.state.content
+      content: this.state.content,
+      userId: this.props.userId
     };
 
     this.props.addPost(newPost);

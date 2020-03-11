@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostItem from './PostItem';
-import PostButtons from './PostButtons';
-import PostNumber from './PostDetails';
 import './main-page.css';
 
 const MainPage = ({ posts, userId, deletePost, editPost }) => {
@@ -38,13 +36,6 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
           title={post.title}
           category={post.category}
         />
-        {/* <div className="post__right">
-          <button className="post__delete btn" onClick={() => deletePost(id)}>
-            Delete
-          </button>
-          <button className="post__edit btn">Edit</button>
-        </div> */}
-        {/* <PostNumber post={post} /> */}
       </div>
     );
   });
