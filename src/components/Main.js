@@ -5,7 +5,7 @@ import MainPage from './MainPage';
 export class Main extends Component {
   render() {
     return (
-      <div className="ui container">
+      <div className="ui container main__container">
         <Header
           isSignedIn={this.props.isSignedIn}
           updateSignIn={this.props.updateSignInStatus}

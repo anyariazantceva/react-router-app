@@ -45,7 +45,7 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
   });
 
   return (
-    <div className="container">
+    <div className="ui container main-page__container">
       <div className="main__title">Posts List</div>
       <Link to="/addpost">
         <button className="btn">Add Post</button>
