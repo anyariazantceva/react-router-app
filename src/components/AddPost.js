@@ -49,6 +49,7 @@ export class AddPost extends Component {
               onChange={this.handleChange}
               placeholder="Title"
               type="text"
+              required
             />
           </div>
           <div className="category">
@@ -60,6 +61,7 @@ export class AddPost extends Component {
               onChange={this.handleChange}
               placeholder="Category"
               type="text"
+              required
             />
           </div>
           <div className="writeNewField">
@@ -73,8 +75,8 @@ export class AddPost extends Component {
               rows="10"
             ></textarea>
           </div>
-          ><button className="btn--save">Save</button>
-          <button on>Cancel</button>
+          <button className="btn--save">Save</button>
+          <button>Cancel</button>
         </form>
       </div>
     );

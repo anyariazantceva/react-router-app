@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import './postNumber.css';
-export default class PostNumber extends Component {
+export default class PostDetails extends Component {
   state = {
     post: {
       id: '01a',
@@ -19,22 +20,28 @@ export default class PostNumber extends Component {
     },
     newPost: {}
   };
+   id = +this.props.match.params.id;
+   posts = this.props.posts;
+   filteredPost = this.posts.filter((item) => {
+       return item.id === this.id;
+   })
   render() {
-    // const {post} = this.props;
+
+      console.log(this.filteredPost)
 
     return (
       <div className="post-main-div">
         <div className="post-top-div">
-          <h4>Back to Post</h4>
+          <Link to='/'>Back to Posts</Link>
           <button className="postButton">Delete Post</button>
           <button className="postButton1">Edit Post</button>
         </div>
         <div className="post-text-div">
-          <h4>Title: {this.state.post.title}</h4>
-          <h4>Category: {this.state.post.category}</h4>
+          <h4>Title: {this.filteredPost[0].title}</h4>
+          <h4>Category: {this.filteredPost[0].category}</h4>
         </div>
         <div className="post-content-div">
-          <p>{this.state.post.content}</p>
+          <p>{this.filteredPost[0].content}</p>
         </div>
       </div>
     );
