@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import AddPostMine from './AddPostMine';
+import AddPost from './AddPost';
 import Main from './Main';
 import posts from './posts';
 import PostDetails from './PostDetails';
+import history from './history';
 
 class App extends Component {
   // The states are related with
@@ -32,6 +33,7 @@ class App extends Component {
 
   addPost = newPost => {
     let newPostList = [...this.state.posts, newPost];
+    console.log(newPostList);
     this.setState({ posts: newPostList });
   };
 
@@ -43,8 +45,9 @@ class App extends Component {
   editPost = id => {};
 
   render() {
+    console.log(this.state.posts);
     return (
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         {/* <div className="ui container">
           <Header
             isSignedIn={this.state.isSignedIn}
@@ -58,7 +61,7 @@ class App extends Component {
             userId={this.state.userId}
             posts={this.state.posts}
           />
-          {/* <AddPostMine addPost={this.addPost} /> */}
+          {/* <AddPost addPost={this.addPost} /> */}
         {/* </div> */}
 
         <Switch>
@@ -67,10 +70,14 @@ class App extends Component {
             path="/addpost"
             exact
             render={() => (
-              <AddPostMine addPost={this.addPost} posts={this.state.posts} />
+              <AddPost
+                addPost={this.addPost}
+                posts={this.state.posts}
+                history={history}
+              />
             )}
           />
-          <Route path="/editpost" exact component={AddPostMine} />
+          <Route path="/editpost" exact component={AddPost} />
           <Route
             path="/"
             exact

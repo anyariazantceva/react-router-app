@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-export class AddPostMine extends Component {
+export class AddPost extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +17,7 @@ export class AddPostMine extends Component {
     const { name, value } = e.target;
 
     this.setState({ [name]: value });
-    console.log(e.target.value);
+    // console.log(e.target.value);
     // const value = e.target.value
     // const name = e.target.name
     // this.setState({title : e.target.value})
@@ -32,10 +33,11 @@ export class AddPostMine extends Component {
     };
 
     this.props.addPost(newPost);
+    this.props.history.push('/');
   };
 
   render() {
-    console.log(this.props.addPost);
+    // console.log(this.props.addPost);
 
     return (
       <div className="form__container">
@@ -83,4 +85,4 @@ export class AddPostMine extends Component {
   }
 }
 
-export default AddPostMine;
+export default AddPost;
