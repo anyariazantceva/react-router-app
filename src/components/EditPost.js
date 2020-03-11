@@ -1,43 +1,42 @@
 import React, { Component } from 'react';
 
-export class AddPost extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      id: this.props.posts.length + 1,
-      title: '',
-      category: '',
-      content: '',
-      key: ''
-    };
-  }
+export class EditPost extends Component {
+  state = {
+    id: null,
+    title: '',
+    category: '',
+    content: '',
+    userId: '',
+    ...this.props.posts[this.props.match.params.id]
+  };
 
   handleChange = e => {
     const { name, value } = e.target;
-
     this.setState({ [name]: value });
-    // console.log(e.target.value);
-    // const value = e.target.value
-    // const name = e.target.name
-    // this.setState({title : e.target.value})
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    const newPost = {
+    const modifiedPost = {
+      id: this.state.id,
       title: this.state.title,
       category: this.state.category,
-      content: this.state.content
+      content: this.state.content,
+      userId: this.state.userId
     };
 
-    this.props.addPost(newPost);
+    // console.log(modifiedPost);
+    const id = Number(this.props.match.params.id);
+
+    this.props.editPost(id, modifiedPost);
     this.props.onDismiss();
   };
 
   render() {
-    console.log(this.props.posts);
+    // console.log(this.props.match.params.id);
+    // console.log(this.props.posts[this.props.match.params.id]);
+    // console.log(this.state);
     return (
       <div className="form__container">
         <form onSubmit={this.handleSubmit}>
@@ -82,4 +81,4 @@ export class AddPost extends Component {
   }
 }
 
-export default AddPost;
+export default EditPost;

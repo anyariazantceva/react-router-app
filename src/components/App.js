@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AddPost from './AddPost';
+import EditPost from './EditPost';
 import Main from './Main';
 import posts from './posts';
 import PostDetails from './PostDetails';
@@ -42,7 +43,14 @@ class App extends Component {
     this.setState({ posts: posts });
   };
 
-  editPost = id => {};
+  editPost = (id, modifiedPost) => {
+    const posts = [...this.state.posts];
+
+    let index = posts.findIndex(post => post.id === id + 1);
+    posts[index] = modifiedPost;
+
+    this.setState({ posts: posts });
+  };
 
   render() {
     console.log(this.state.posts);
@@ -61,7 +69,18 @@ class App extends Component {
               />
             )}
           />
-          <Route path="/editpost" exact component={AddPost} />
+          <Route
+            path="/editpost/:id"
+            exact
+            render={props => (
+              <EditPost
+                posts={this.state.posts}
+                editPost={this.editPost}
+                onDismiss={() => history.push('/')}
+                {...props}
+              />
+            )}
+          />
           <Route
             path="/"
             exact
