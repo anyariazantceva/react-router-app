@@ -10,6 +10,7 @@ export class AddPostMine extends Component {
       content: '',
       key: ''
     };
+    console.log(props)
   }
 
   handleChange = e => {
