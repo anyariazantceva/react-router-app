@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 export class AddPost extends Component {
   constructor(props) {
@@ -34,12 +33,11 @@ export class AddPost extends Component {
     };
 
     this.props.addPost(newPost);
-    this.props.history.push('/');
+    this.props.onDismiss();
   };
 
   render() {
-    // console.log(this.props.addPost);
-
+    console.log(this.props.onDismiss);
     return (
       <div className="form__container">
         <form onSubmit={this.handleSubmit}>
@@ -76,10 +74,8 @@ export class AddPost extends Component {
               rows="10"
             ></textarea>
           </div>
-
-          <button className="btn--save">Save</button>
-
-          <button>Cancel</button>
+          ><button className="btn--save">Save</button>
+          <button on>Cancel</button>
         </form>
       </div>
     );
