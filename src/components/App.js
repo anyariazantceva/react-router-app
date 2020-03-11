@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AddPost from './AddPost';
 import Main from './Main';
@@ -47,23 +47,7 @@ class App extends Component {
   render() {
     console.log(this.state.posts);
     return (
-      <BrowserRouter history={history}>
-        {/* <div className="ui container">
-          <Header
-            isSignedIn={this.state.isSignedIn}
-            updateSignIn={this.updateSignInStatus}
-            updateUserId={this.updateUserId}
-          />
-
-          <MainPage
-            editPost={this.editPost}
-            deletePost={this.deletePost}
-            userId={this.state.userId}
-            posts={this.state.posts}
-          />
-          {/* <AddPost addPost={this.addPost} /> */}
-        {/* </div> */}
-
+      <Router history={history}>
         <Switch>
           <Route path="/post/" exact component={PostDetails} />
           <Route
@@ -73,7 +57,7 @@ class App extends Component {
               <AddPost
                 addPost={this.addPost}
                 posts={this.state.posts}
-                history={history}
+                onDismiss={() => history.push('/')}
               />
             )}
           />
@@ -94,7 +78,7 @@ class App extends Component {
             )}
           />
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }
