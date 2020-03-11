@@ -39,6 +39,10 @@ class App extends Component {
       const posts = this.state.posts.filter(post => id !== post.id)
       this.setState({ posts: posts })
   }
+
+  editPost = (id) => {
+
+  }
      
 
     render() {
@@ -51,7 +55,7 @@ class App extends Component {
                         updateUserId={this.updateUserId}
                     />
 
-                    <MainPage deletePost={this.deletePost} userId={this.state.userId} posts={this.state.posts} />
+                    <MainPage editPost={this.editPost} deletePost={this.deletePost} userId={this.state.userId} posts={this.state.posts} />
                     <AddPostMine posts={this.state.posts} addPost={this.addPost} />
                     
                 </div>

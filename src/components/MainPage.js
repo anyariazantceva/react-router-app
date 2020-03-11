@@ -4,7 +4,7 @@ import PostButtons from "./PostButtons";
 import PostNumber from "./postNumber";
 import "./main-page.css";
 
-const MainPage = ({ posts, userId, deletePost }) => {
+const MainPage = ({ posts, userId, deletePost, editPost }) => {
 
   const postsList = posts.map(post => {
     const id = post.id;
@@ -16,7 +16,7 @@ const MainPage = ({ posts, userId, deletePost }) => {
             <button className="post__delete btn" value={id} onClick={() => deletePost(id)}>
               Delete
             </button>
-            <button className="post__edit btn">Edit</button>
+            <button className="post__edit btn" onClick={() => editPost(id)}>Edit</button>
           </div>
           <PostNumber post={post} id={id} />
         </div>
