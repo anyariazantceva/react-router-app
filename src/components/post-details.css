@@ -1,46 +1,41 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-.post-main-div{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: 40px auto;
-    border: 2px solid black;
-
+.post-main-div {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  border: 2px solid black;
 }
-.post-top-div{
-    display: flex;
-    justify-content: space-around;
-    margin-top: 3rem;
-    margin-left: 0rem;
+.post-top-div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3rem;
+  margin-left: 0rem;
 }
-.postButton{
-    padding: 0.7rem;
-    font-size: 1rem;
-    cursor: pointer;
-    
-
+.postButton {
+  padding: 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
-.postButton1{
-    padding: 0.7rem;
-    font-size: 1rem;
-    cursor: pointer;
-
+.postButton1 {
+  padding: 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
-.post-text-div{
-    display: flex;
-    flex-direction: column;
-    margin:1rem;
-    padding: 2rem;
+.post-text-div {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 2rem;
 }
-.post-text-div>h4{
-    padding: 1rem;
+.post-text-div > h4 {
+  padding: 1rem;
 }
-.post-content-div{
-    align-items: center;
-    margin: 2rem;
-    
+.post-content-div {
+  align-items: center;
+  margin: 2rem;
 }
