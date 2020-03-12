@@ -31,8 +31,8 @@ class App extends Component {
     this.setState({ userId: id });
   };
 
-  addPost = newPost => {
-    let newPostList = [...this.state.posts, newPost];
+  addPost = newpost => {
+    let newPostList = [...this.state.posts, newpost];
     console.log(newPostList);
     this.setState({ posts: newPostList });
   };

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostItem from './PostItem';
-import PostButtons from './PostButtons';
-import PostNumber from './PostDetails';
+// import PostButtons from './PostButtons';
+// import PostNumber from './PostDetails';
 import './main-page.css';
 
 const MainPage = ({ posts, userId, deletePost, editPost }) => {
