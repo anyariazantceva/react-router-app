@@ -42,14 +42,14 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
             Delete
           </button>
           <button className="post__edit btn">Edit</button>
-        </div>
-        {/* <PostNumber post={post} /> */}
+        </div> */}
+        {/* <PostNumber post={post} />
       </div>
     );
   });
 
   return (
-    <div className="container">
+    <div className="ui container">
       <div className="main__title">Posts List</div>
       <Link to="/addpost">
         <button className="btn">Add Post</button>
