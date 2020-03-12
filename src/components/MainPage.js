@@ -1,30 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostItem from './PostItem';
-// import PostButtons from './PostButtons';
-// import PostNumber from './PostDetails';
 import './main-page.css';
 
 const MainPage = ({ posts, userId, deletePost, editPost }) => {
   const postsList = posts.map(post => {
-    const id = post.id;
     if (userId === post.userId) {
       return (
         <div className="post">
-          <PostItem key={id} title={post.title} category={post.category} />
+          <PostItem key={post.id} id={post.id} title={post.title} category={post.category} />
           <div className="post__right">
             <button
               className="post__delete btn"
-              value={id}
-              onClick={() => deletePost(id)}
+              value={post.id}
+              onClick={() => deletePost(post.id)}
             >
               Delete
             </button>
-            <button className="post__edit btn" onClick={() => editPost(id)}>
+            <button className="post__edit btn" onClick={() => editPost(post.id)}>
               Edit
             </button>
           </div>
-          {/* <PostNumber post={post} id={id} /> */}
         </div>
       );
     }
@@ -33,23 +29,23 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
       <div className="post">
         <PostItem
           className="post__left"
+          id={post.id}
           key={post.id}
           title={post.title}
           category={post.category}
         />
         <div className="post__right">
-          <button className="post__delete btn" onClick={() => deletePost(id)}>
+          <button className="post__delete btn" onClick={() => deletePost(post.id)}>
             Delete
           </button>
           <button className="post__edit btn">Edit</button>
         </div>
-        {/* <PostNumber post={post} /> */}
       </div>
     );
   });
 
   return (
-    <div className="container">
+    <div className="ui container main-page__container">
       <div className="main__title">Posts List</div>
       <Link to="/addpost">
         <button className="btn">Add Post</button>

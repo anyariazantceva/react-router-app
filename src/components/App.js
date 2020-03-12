@@ -31,9 +31,8 @@ class App extends Component {
     this.setState({ userId: id });
   };
 
-  addPost = newpost => {
-    let newPostList = [...this.state.posts, newpost];
-    console.log(newPostList);
+  addPost = newPost => {
+    let newPostList = [...this.state.posts, newPost];
     this.setState({ posts: newPostList });
   };
 
@@ -42,14 +41,11 @@ class App extends Component {
     this.setState({ posts: posts });
   };
 
-  editPost = id => {};
-
   render() {
-    console.log(this.state.posts);
     return (
       <Router history={history}>
         <Switch>
-          <Route path="/post/" exact component={PostDetails} />
+          <Route path="/post/:id" exact render={(props) => (<PostDetails posts={this.state.posts} {...props} />)} />
           <Route
             path="/addpost"
             exact

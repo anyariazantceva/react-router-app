@@ -40,9 +40,9 @@ export class AddPost extends Component {
   render() {
     console.log(this.props.onDismiss);
     return (
-      <div className="form__container">
+      <div className="ui container ui form add-form">
         <form onSubmit={this.handleSubmit}>
-          <div className="title">
+          <div className="title field">
             <label htmlFor="title">Title:</label>
             <input
               id="title"
@@ -51,9 +51,10 @@ export class AddPost extends Component {
               onChange={this.handleChange}
               placeholder="Title"
               type="text"
+              required
             />
           </div>
-          <div className="category">
+          <div className="category field">
             <label htmlFor="Category">Category:</label>
             <input
               id="category"
@@ -62,10 +63,11 @@ export class AddPost extends Component {
               onChange={this.handleChange}
               placeholder="Category"
               type="text"
+              required
             />
           </div>
-          <div className="writeNewField">
-            <label htmlFor="writeNewField">write New Post:</label>
+          <div className="writeNewField field">
+            <label htmlFor="writeNewField">Write New Post:</label>
             <textarea
               name="content"
               id="textfield"
@@ -76,7 +78,7 @@ export class AddPost extends Component {
             ></textarea>
           </div>
           <button className="btn--save">Save</button>
-          <button on>Cancel</button>
+          <button>Cancel</button>
         </form>
       </div>
     );
