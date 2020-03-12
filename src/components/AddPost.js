@@ -74,7 +74,7 @@ export class AddPost extends Component {
               rows="10"
             ></textarea>
           </div>
-          ><button className="btn--save">Save</button>
+          <button className="btn--save">Save</button>
           <button on>Cancel</button>
         </form>
       </div>
