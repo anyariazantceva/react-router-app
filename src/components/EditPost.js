@@ -8,7 +8,7 @@ export class EditPost extends Component {
     category: '',
     content: '',
     userId: '',
-    ...this.props.posts[this.props.match.params.id]
+    ...this.props.posts[this.props.match.params.id - 1]
   };
 
   handleChange = e => {
