@@ -1,46 +1,46 @@
 import React, { Component } from 'react';
 
-export class AddPost extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      id: this.props.posts.length + 1,
-      title: '',
-      category: '',
-      content: '',
-      key: ''
-    };
-    console.log(props)
-  }
+export class EditPost extends Component {
+  state = {
+    id: null,
+    title: '',
+    category: '',
+    content: '',
+    userId: '',
+    ...this.props.posts[this.props.match.params.id]
+  };
 
   handleChange = e => {
     const { name, value } = e.target;
-
     this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
 
-    const newPost = {
+    const modifiedPost = {
       id: this.state.id,
       title: this.state.title,
       category: this.state.category,
       content: this.state.content,
-      userId: this.props.userId
+      userId: this.state.userId
     };
 
-    this.props.addPost(newPost);
+    // console.log(modifiedPost);
+    const id = Number(this.props.match.params.id);
+
+    this.props.editPost(id, modifiedPost);
     this.props.onDismiss();
   };
 
   render() {
-    console.log(this.props.posts);
+    // console.log(this.props.match.params.id);
+    // console.log(this.props.posts[this.props.match.params.id]);
+    // console.log(this.state);
     return (
-      <div className="ui container ui form add-form">
+      <div className="form__container">
         <form onSubmit={this.handleSubmit}>
-          <div className="title field">
+          <div className="title">
             <label htmlFor="title">Title:</label>
             <input
               id="title"
@@ -49,10 +49,9 @@ export class AddPost extends Component {
               onChange={this.handleChange}
               placeholder="Title"
               type="text"
-              required
             />
           </div>
-          <div className="category field">
+          <div className="category">
             <label htmlFor="Category">Category:</label>
             <input
               id="category"
@@ -61,11 +60,10 @@ export class AddPost extends Component {
               onChange={this.handleChange}
               placeholder="Category"
               type="text"
-              required
             />
           </div>
-          <div className="writeNewField field">
-            <label htmlFor="writeNewField">Write New Post:</label>
+          <div className="writeNewField">
+            <label htmlFor="writeNewField">write New Post:</label>
             <textarea
               name="content"
               id="textfield"
@@ -76,11 +74,11 @@ export class AddPost extends Component {
             ></textarea>
           </div>
           <button className="btn--save">Save</button>
-          <button>Cancel</button>
+          <button on>Cancel</button>
         </form>
       </div>
     );
   }
 }
 
-export default AddPost;
+export default EditPost;

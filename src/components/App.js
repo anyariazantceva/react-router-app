@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AddPost from './AddPost';
+import EditPost from './EditPost';
 import Main from './Main';
 import posts from './posts';
 import PostDetails from './PostDetails';
@@ -33,7 +34,6 @@ class App extends Component {
 
   addPost = newPost => {
     let newPostList = [...this.state.posts, newPost];
-    console.log(newPostList);
     this.setState({ posts: newPostList });
   };
 
@@ -42,26 +42,44 @@ class App extends Component {
     this.setState({ posts: posts });
   };
 
-  editPost = id => {};
+  editPost = (id, modifiedPost) => {
+    const posts = [...this.state.posts];
+
+    let index = posts.findIndex(post => post.id === id + 1);
+    posts[index] = modifiedPost;
+
+    this.setState({ posts: posts });
+  };
 
   render() {
-    console.log(this.state.posts);
     return (
       <Router history={history}>
         <Switch>
-          <Route path="/post/" exact component={PostDetails} />
+          <Route path="/post/:id" exact render={(props) => (<PostDetails posts={this.state.posts} {...props} />)} />
           <Route
             path="/addpost"
             exact
             render={() => (
               <AddPost
+                userId={this.state.userId}
                 addPost={this.addPost}
                 posts={this.state.posts}
                 onDismiss={() => history.push('/')}
               />
             )}
           />
-          <Route path="/editpost" exact component={AddPost} />
+          <Route
+            path="/editpost/:id"
+            exact
+            render={props => (
+              <EditPost
+                posts={this.state.posts}
+                editPost={this.editPost}
+                onDismiss={() => history.push('/')}
+                {...props}
+              />
+            )}
+          />
           <Route
             path="/"
             exact

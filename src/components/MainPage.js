@@ -20,9 +20,9 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
             >
               Delete
             </button>
-            <button className="post__edit btn" onClick={() => editPost(id)}>
-              Edit
-            </button>
+            <Link to={`/editpost/${id}`}>
+              <button className="post__edit btn">Edit</button>
+            </Link>
           </div>
           {/* <PostNumber post={post} id={id} /> */}
         </div>
@@ -37,19 +37,12 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
           title={post.title}
           category={post.category}
         />
-        <div className="post__right">
-          <button className="post__delete btn" onClick={() => deletePost(id)}>
-            Delete
-          </button>
-          <button className="post__edit btn">Edit</button>
-        </div> */}
-        {/* <PostNumber post={post} />
       </div>
     );
   });
 
   return (
-    <div className="ui container">
+    <div className="container">
       <div className="main__title">Posts List</div>
       <Link to="/addpost">
         <button className="btn">Add Post</button>
