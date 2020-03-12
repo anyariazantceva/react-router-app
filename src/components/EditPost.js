@@ -30,7 +30,7 @@ export class EditPost extends Component {
     const id = Number(this.props.match.params.id);
 
     this.props.editPost(id, modifiedPost);
-    this.props.onDismiss();
+    this.props.directToHome();
   };
 
   render() {

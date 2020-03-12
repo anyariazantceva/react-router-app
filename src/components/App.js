@@ -34,7 +34,6 @@ class App extends Component {
 
   addPost = newPost => {
     let newPostList = [...this.state.posts, newPost];
-    console.log(newPostList);
     this.setState({ posts: newPostList });
   };
 
@@ -53,7 +52,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state.posts);
     return (
       <Router history={history}>
         <Switch>
@@ -66,7 +64,7 @@ class App extends Component {
                 userId={this.state.userId}
                 addPost={this.addPost}
                 posts={this.state.posts}
-                onDismiss={() => history.push('/')}
+                directToHome={() => history.push('/')}
               />
             )}
           />
@@ -77,7 +75,7 @@ class App extends Component {
               <EditPost
                 posts={this.state.posts}
                 editPost={this.editPost}
-                onDismiss={() => history.push('/')}
+                directToHome={() => history.push('/')}
                 {...props}
               />
             )}

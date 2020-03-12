@@ -15,7 +15,6 @@ export class AddPost extends Component {
 
   handleChange = e => {
     const { name, value } = e.target;
-
     this.setState({ [name]: value });
   };
 
@@ -31,7 +30,7 @@ export class AddPost extends Component {
     };
 
     this.props.addPost(newPost);
-    this.props.onDismiss();
+    this.props.directToHome();
   };
 
   render() {
