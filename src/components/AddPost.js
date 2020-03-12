@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 export class AddPost extends Component {
   constructor(props) {
@@ -11,7 +12,6 @@ export class AddPost extends Component {
       content: '',
       key: ''
     };
-    console.log(props)
   }
 
   handleChange = e => {
@@ -36,10 +36,9 @@ export class AddPost extends Component {
   };
 
   render() {
-    console.log(this.props.posts);
     return (
       <div className="ui container ui form add-form">
-        <form onSubmit={this.handleSubmit}>
+        <form className='page-form'>
           <div className="title field">
             <label htmlFor="title">Title:</label>
             <input
@@ -71,13 +70,14 @@ export class AddPost extends Component {
               id="textfield"
               value={this.state.content}
               onChange={this.handleChange}
-              cols="30"
-              rows="10"
+              cols="10"
+              rows="3"
             ></textarea>
           </div>
-          <button className="btn--save">Save</button>
-          <button>Cancel</button>
+          <button onClick={this.handleSubmit} className="btn--save">Save</button>
+          <Link to='/'><button>Cancel</button></Link>
         </form>
+
       </div>
     );
   }

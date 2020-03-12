@@ -1,5 +1,5 @@
 import React from 'react';
-import './post-item.css';
+import '../css/post-item.css';
 import {Link} from "react-router-dom";
 
 const PostItem = ({id, title, category}) => {
