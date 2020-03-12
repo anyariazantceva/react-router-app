@@ -13,6 +13,7 @@ export class Main extends Component {
         />
 
         <MainPage
+          isSignedIn={this.props.isSignedIn}
           editPost={this.props.editPost}
           deletePost={this.props.deletePost}
           userId={this.props.userId}

@@ -8,10 +8,9 @@
   border: 1px solid #dddddd;
 }
 
-form {
-
+.page-form {
+  overflow: hidden;
   background-color: #f7f8fa;
-  min-height: 100vh;
   width: 80%;
   margin: 0 100px; 
   padding: 40px;

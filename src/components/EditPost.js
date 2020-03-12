@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export class EditPost extends Component {
   state = {
@@ -26,21 +27,20 @@ export class EditPost extends Component {
       userId: this.state.userId
     };
 
-    // console.log(modifiedPost);
     const id = Number(this.props.match.params.id);
+
+    console.log(this.props.posts[this.props.match.params.id]);
 
     this.props.editPost(id, modifiedPost);
     this.props.onDismiss();
   };
 
   render() {
-    // console.log(this.props.match.params.id);
-    // console.log(this.props.posts[this.props.match.params.id]);
-    // console.log(this.state);
+    // console.log(this.props.posts);
     return (
-      <div className="form__container">
-        <form onSubmit={this.handleSubmit}>
-          <div className="title">
+      <div className="ui container ui form add-form">
+        <form className="page-form">
+          <div className="title field">
             <label htmlFor="title">Title:</label>
             <input
               id="title"
@@ -51,7 +51,7 @@ export class EditPost extends Component {
               type="text"
             />
           </div>
-          <div className="category">
+          <div className="category field">
             <label htmlFor="Category">Category:</label>
             <input
               id="category"
@@ -62,19 +62,23 @@ export class EditPost extends Component {
               type="text"
             />
           </div>
-          <div className="writeNewField">
+          <div className="writeNewField field">
             <label htmlFor="writeNewField">write New Post:</label>
             <textarea
               name="content"
               id="textfield"
               value={this.state.content}
               onChange={this.handleChange}
-              cols="30"
-              rows="10"
+              cols="10"
+              rows="3"
             ></textarea>
           </div>
-          <button className="btn--save">Save</button>
-          <button on>Cancel</button>
+          <button onClick={this.handleSubmit} className="btn--save">
+            Save
+          </button>
+          <Link to="/">
+            <button>Cancel</button>
+          </Link>
         </form>
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import '../css/App.css';
 import AddPost from './AddPost';
 import EditPost from './EditPost';
 import Main from './Main';

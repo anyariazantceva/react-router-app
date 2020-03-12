@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PostItem from './PostItem';
-import PostButtons from './PostButtons';
-import PostNumber from './PostDetails';
-import './main-page.css';
+import '../css/main-page.css';
 
-const MainPage = ({ posts, userId, deletePost, editPost }) => {
+const MainPage = ({ posts, userId, deletePost, editPost, isSignedIn }) => {
   const postsList = posts.map(post => {
     const id = post.id;
     if (userId === post.userId) {
@@ -40,13 +38,16 @@ const MainPage = ({ posts, userId, deletePost, editPost }) => {
       </div>
     );
   });
+  const displayButton = isSignedIn ? (
+    <Link to="/addpost">
+      <button className="btn">Add Post</button>
+    </Link>
+  ) : null;
 
   return (
     <div className="container">
       <div className="main__title">Posts List</div>
-      <Link to="/addpost">
-        <button className="btn">Add Post</button>
-      </Link>
+      {displayButton}
       <div className="posts__list">{postsList}</div>
     </div>
   );
